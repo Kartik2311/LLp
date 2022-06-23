@@ -1,0 +1,954 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="CY_Year" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>654,515</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DB_connect" sap:VirtualizedContainerService.HintSize="376,257" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="DBCon" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:DatabaseConnect DatabaseConnection="[DBCon]" DisplayName="Connect to database" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="Data Source=192.168.1.32;Initial Catalog=LLP_DB;Persist Security Info=True;User ID=llp;Password=Corwhite@324" />
+    <Sequence DisplayName="Assets_Libilities" sap:VirtualizedContainerService.HintSize="376,1265" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="CY_Year" />
+        <Variable x:TypeArguments="s:String[]" Name="DList" />
+        <Variable x:TypeArguments="x:String" Name="Path_Assetsfile">
+          <Variable.Default>
+            <Literal x:TypeArguments="x:String">C:\Users\devllp\Desktop\Form\LLP Form8-2019_signed.pdf</Literal>
+          </Variable.Default>
+        </Variable>
+        <Variable x:TypeArguments="x:String" Name="CY_DD" />
+        <Variable x:TypeArguments="x:String" Name="CY_MM" />
+        <Variable x:TypeArguments="x:String" Name="CY_YYYY" />
+        <Variable x:TypeArguments="x:String" Name="CY_Contribution_Recived" />
+        <Variable x:TypeArguments="x:String" Name="CY_Reserves_surplus" />
+        <Variable x:TypeArguments="x:String" Name="CY_Secured_loans" />
+        <Variable x:TypeArguments="x:String" Name="CY_Unsecured_loans" />
+        <Variable x:TypeArguments="x:String" Name="CY_Short_term_borrw" />
+        <Variable x:TypeArguments="x:String" Name="CY_Creditores_tred" />
+        <Variable x:TypeArguments="x:String" Name="CY_Other_Libilities" />
+        <Variable x:TypeArguments="x:String" Name="CY_for_taxation" />
+        <Variable x:TypeArguments="x:String" Name="CY_for_contingencies" />
+        <Variable x:TypeArguments="x:String" Name="CY_for_insurance" />
+        <Variable x:TypeArguments="x:String" Name="CY_Other_provisions" />
+        <Variable x:TypeArguments="x:String" Name="CY_Gross_Fixed_assets" />
+        <Variable x:TypeArguments="x:String" Name="CY_Less_depreciation" />
+        <Variable x:TypeArguments="x:String" Name="CY_Investments" />
+        <Variable x:TypeArguments="x:String" Name="CY_Loans_and_advances" />
+        <Variable x:TypeArguments="x:String" Name="CY_Inventories" />
+        <Variable x:TypeArguments="x:String" Name="CY_Debtors" />
+        <Variable x:TypeArguments="x:String" Name="CY_Cash_equivalents" />
+        <Variable x:TypeArguments="x:String" Name="CY_Other_assets" />
+        <Variable x:TypeArguments="x:Int32" Name="Affectedrow" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a52b2ba2-31cb-49b9-b926-67110949a08d" InformativeScreenshot="6274551d4d102d77e80d29ca98b68eae" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd aaname='Import From Form-8' cls='ThunderRT6CommandButton' title='Import From &amp;amp;Form-8' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Click>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Both year" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84b7bbd0-e89d-469c-8953-52a037a06001" InformativeScreenshot="074e04cdb0fa085f0211a79688be7e9b" Selector="&lt;wnd app='complaw.exe' cls='#32768' idx='*' /&gt;&lt;ctrl name='Context' role='popup menu' /&gt;&lt;ctrl automationid='9' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Click>
+      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'Edit'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[Path_Assetsfile]">
+        <ui:SetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3bdd9813-0389-4196-a91d-c1535028404d" InformativeScreenshot="9387804b3e19a17b95876c5ac5c8eb3e" Selector="&lt;wnd app='complaw.exe' cls='#32770' title='Open' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SetValue.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:SetValue>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1fce690d-d625-4441-81f9-65653f3c36e7" InformativeScreenshot="34e2b0d86c91e03c3acf91eb775959df" Selector="&lt;wnd app='complaw.exe' cls='#32770' title='Open' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Open' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Click>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b539f4b5-3e3b-4ad7-8de9-bc090d9d47e1" InformativeScreenshot="8ae8b74456e1cc413b12001d4b034d00" Selector="&lt;wnd app='complaw.exe' cls='#32770' title='Gen LLP' /&gt;&lt;wnd ctrlid='2' title='OK' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Click>
+      <Sequence DisplayName="CY_fetch-Details" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Current_Year" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_1">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="98c98233-d1ef-474a-9d1d-a2cc07e16d8b" InformativeScreenshot="4253c335ad463d5e0738aaf07bba252d" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='5' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Year]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Countribution_recived" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_2">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a12cc661-b541-42bf-ad37-d70138016ea0" InformativeScreenshot="d40bf8ace5e4953ea04cb03cceae3575" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='14' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Contribution_Recived]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Contribution_Recived]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Contribution_Recived.Substring(0,(CY_Contribution_Recived.IndexOf(".")))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Reserves_surplus" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_3">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="df122970-8fb7-4ada-bbb8-7e952f2069ce" InformativeScreenshot="594976a66dc96ea600eb7d1f5853208c" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='17' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Reserves_surplus]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Reserves_surplus]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Reserves_surplus.Substring(0,(CY_Reserves_surplus.IndexOf(".")))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Secured_loans" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_4">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="73bc87c2-1b71-4204-b892-5d02c47d0bd3" InformativeScreenshot="f045f1e3c0c937512af0619bf85e095b" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='23' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Secured_loans]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Secured_loans]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Secured_loans.Substring(0,CY_Secured_loans.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Unsecured_loans" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_5">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f3716b31-3502-4814-998b-8e7de1ddc4de" InformativeScreenshot="e83e55e366895ab27363dec64b7be6b6" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='26' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Unsecured_loans]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Unsecured_loans]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Unsecured_loans.Substring(0,CY_Unsecured_loans.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Short_term_borrw" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_6">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ec3f012-150b-4139-aa00-6444045c9998" InformativeScreenshot="06adacbad60e515584b51de00eb270de" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='29' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Short_term_borrw]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Short_term_borrw]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Short_term_borrw.Substring(0,CY_Short_term_borrw.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Creditores_tred" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_7">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fdba3684-82b1-4f2e-9a54-27c8f30beae6" InformativeScreenshot="4b5be15305ff7c86d2915bd4e7223f94" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='32' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Creditores_tred]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Creditores_tred]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Creditores_tred.Substring(0,CY_Creditores_tred.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Other_Libilities" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_8">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cc5dd8a5-1037-41d4-8bb6-69e438debb9a" InformativeScreenshot="8dcb7cf62547a111e830d75419ffad57" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='35' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Other_Libilities]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Other_Libilities]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Other_Libilities.Substring(0,CY_Other_Libilities.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_for_taxation" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_9">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87901ed9-a6ea-4208-9876-90aeeefc35ae" InformativeScreenshot="08b80e2dbe7514ea1626eed3d0af0bb6" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='41' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_for_taxation]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_for_taxation]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_for_taxation.Substring(0,CY_for_taxation.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_for_contingencies" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_10">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9a2df2f6-2676-455b-b62e-9ff2d82b8b61" InformativeScreenshot="e83e55e366895ab27363dec64b7be6b6" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='44' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_for_contingencies]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_for_contingencies]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_for_contingencies.Substring(0,CY_for_contingencies.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_for_insurance" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_11">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84fb3a75-e1f2-4b20-b483-2a9bee496a88" InformativeScreenshot="cd4506a6fb632df93d344259b30c9526" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='47' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_for_insurance]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_for_insurance]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_for_insurance.Substring(0,CY_for_insurance.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Other_provisions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_12">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="713f77a6-4bd3-461d-ac81-18aecb1c4aa6" InformativeScreenshot="142bd3f021ead737978042dd9521170d" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (2021*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='50' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Other_provisions]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Other_provisions]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Other_provisions.Substring(0,CY_Other_provisions.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Gross_Fixed_assets" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_13">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6931e2f7-aaf7-4fc4-b3e0-f0257e26b716" InformativeScreenshot="b57ee45d58ad253a5e1958abadd0275c" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='59' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Gross_Fixed_assets]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Gross_Fixed_assets]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Gross_Fixed_assets.Substring(0,CY_Gross_Fixed_assets.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Less_depreciation" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_14">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5da96cf7-476e-431d-ad9d-e0ffac23a967" InformativeScreenshot="0954cdfe725a6970c59e4607da524657" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='62' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Less_depreciation]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Less_depreciation]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Less_depreciation.Substring(0,CY_Less_depreciation.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Investments" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_15">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3db602c2-a76a-42cb-b9df-b07aff422652" InformativeScreenshot="aa8a6ddb5e93fa6e723943a41cea6fe6" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='68' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Investments]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Investments]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Investments.Substring(0,CY_Investments.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Loans_and_advances" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_16">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="65ab3bd9-1bc5-4501-8461-408bd1b40b8a" InformativeScreenshot="373299d2c39986ac929755d9920c89e5" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='71' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Loans_and_advances]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Loans_and_advances]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Loans_and_advances.Substring(0,CY_Loans_and_advances.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Inventories" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_17">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="290f889e-786c-4e91-8cf6-a34455795d1d" InformativeScreenshot="8a05e803f91b6129b0e2a2474bd55aa5" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='74' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Inventories]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Inventories]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Inventories.Substring(0,CY_Inventories.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Debtors" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_18">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0c42a815-1048-4e9f-a12f-68f2abf93de5" InformativeScreenshot="38a7546d901c7430d14460dec81648c3" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='77' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Debtors]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Debtors]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Debtors.Substring(0,CY_Debtors.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Cash_equivalents" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_19">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0667e396-cff1-493b-b7df-0182850275ea" InformativeScreenshot="9c9cd3d3ff462a4b649e9190f348a2bb" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='80' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Cash_equivalents]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Cash_equivalents]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Cash_equivalents.Substring(0,CY_Cash_equivalents.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text CY_Other_assets" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="GetValue_20">
+          <ui:GetValue.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b23b9ba-cda3-4d58-bdbf-a5d53711b3f8" InformativeScreenshot="da3b9735efce684802dcc5710b7795f1" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6Frame' /&gt;&lt;ctrl idx='83' role='cell' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:GetValue.Target>
+          <ui:GetValue.Value>
+            <OutArgument x:TypeArguments="x:String">[CY_Other_assets]</OutArgument>
+          </ui:GetValue.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetValue>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[CY_Other_assets]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[CY_Other_assets.Substring(0,CY_Other_assets.IndexOf("."))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="86fd3032-37e6-456b-8276-0db9078204b5" InformativeScreenshot="fd8eb0d3cf27adb67d79b25116f65553" Selector="&lt;wnd app='complaw.exe' cls='ThunderRT6MDIForm' title='Company e-Filer (202*' /&gt;&lt;wnd cls='DBasMdiChildClass' title='Balance Sheet' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='Balance Sheet' /&gt;&lt;wnd aaname='Back' cls='ThunderRT6CommandButton' title='&amp;amp;Back' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Click.Target>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:Click>
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6110552b-77d5-4b3e-93cd-ed2304cd6242" InformativeScreenshot="098a04ff1e4c498492704e1f627a2245" Selector="&lt;wnd app='complaw.exe' cls='#32770' title='Gen LLP' /&gt;&lt;wnd ctrlid='6' title='&amp;amp;Yes' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Click.Target>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:Click>
+      </Sequence>
+      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[CY_DD]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[CY_Year.Substring(0,2)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[CY_MM]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[CY_Year.Substring(3,2)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[CY_YYYY]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[CY_Year.Substring(6,4)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[CY_Year]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[CY_YYYY+"-" +CY_MM+"-"+CY_DD]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DBCon]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="INSERT Into [dbo].[Assets_Liabilities]&#xA;VALUES (NEWID(),'','',@CY_Year,''&#xA;           ,@CY_Contribution_Recived&#xA;           ,@CY_Reserves_surplus&#xA;           ,@CY_Secured_loans&#xA;           ,@CY_Unsecured_loans&#xA;           ,@CY_Short_term_borrw&#xA;           ,@CY_Creditores_tred&#xA;           ,@CY_Other_Libilities&#xA;           ,@CY_for_taxation&#xA;           ,@CY_for_contingencies&#xA;           ,@CY_for_insurance&#xA;           ,@CY_Other_provisions&#xA;           ,@CY_Gross_Fixed_assets&#xA;           ,@CY_Less_depreciation&#xA;           ,@CY_Investments&#xA;           ,@CY_Loans_and_advances&#xA;           ,@CY_Inventories&#xA;           ,@CY_Debtors&#xA;           ,@CY_Cash_equivalents&#xA;           ,@CY_Other_assets&#xA;           ,@Path_Assetsfile&#xA;           ,'C:\Form-8')">
+        <ui:ExecuteNonQuery.Parameters>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Year">[CY_Year]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Contribution_Recived">[CY_Contribution_Recived]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Reserves_surplus">[CY_Reserves_surplus]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Secured_loans">[CY_Secured_loans]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Unsecured_loans">[CY_Unsecured_loans]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Short_term_borrw">[CY_Short_term_borrw]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Creditores_tred">[CY_Creditores_tred]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Other_Libilities">[CY_Other_Libilities]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_for_taxation">[CY_for_taxation]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_for_contingencies">[CY_for_contingencies]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_for_insurance">[CY_for_insurance]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Other_provisions">[CY_Other_provisions]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Gross_Fixed_assets">[CY_Gross_Fixed_assets]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Less_depreciation">[CY_Less_depreciation]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Investments">[CY_Investments]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Loans_and_advances">[CY_Loans_and_advances]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Inventories">[CY_Inventories]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Debtors">[CY_Debtors]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Cash_equivalents">[CY_Cash_equivalents]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@CY_Other_assets">[CY_Other_assets]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@Path_Assetsfile">[Path_Assetsfile]</InArgument>
+        </ui:ExecuteNonQuery.Parameters>
+      </ui:ExecuteNonQuery>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[Path_Assetsfile]" />
+    </Sequence>
+  </Sequence>
+</Activity>
